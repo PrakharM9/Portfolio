@@ -1,0 +1,415 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakhar Mehrotra | Data Science & Software Engineering</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="light-mode">
+    <!-- Loading Animation -->
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Prakhar Mehrotra</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#github">GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn btn-sm btn-outline-light ms-2">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero d-flex align-items-center">
+        <div class="container text-center">
+            <div class="profile-img-wrapper">
+                <img src="{% static 'images/profile pic.jpeg' %}" alt="Prakhar Mehrotra" class="profile-img">
+            </div>
+            <h1 class="display-4 fw-bold">Prakhar Mehrotra</h1>
+            <h2 class="h3">Frontend Developer & Data Science Enthusiast</h2>
+            <p class="lead">Building responsive web applications and data-driven solutions.</p>
+            <div class="hero-buttons mt-4">
+                <a href="#projects" class="btn btn-primary me-2">View Projects</a>
+                <a href="{% static 'files/Prakhar_Mehrotra_CV.pdf' %}" class="btn btn-outline-light me-2" download>Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="lead">
+                        I am a Computer Science student passionate about Frontend Development and Data Science. I build responsive and user-friendly web applications using HTML, CSS, JavaScript, Bootstrap, and Django, while also leveraging data tools like Pandas and NumPy to create data-driven solutions. I focus on combining clean UI design with efficient, problem-solving approaches to develop impactful applications.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <!-- Skills Section -->
+<section id="skills" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="row g-4">
+            <!-- 1. Programming -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <h4><i class="fas fa-code"></i> Programming</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 2. Frontend -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <h4><i class="fas fa-laptop-code"></i> Frontend</h4>
+                    <ul>
+                        <li>HTML5 / CSS3</li>
+                        <li>Bootstrap 5</li>
+                        <li>React.js (Basics)</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 3. Data Science -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <h4><i class="fas fa-chart-line"></i> Data Science</h4>
+                    <ul>
+                        <li>Pandas</li>
+                        <li>NumPy</li>
+                        <li>Matplotlib</li>
+                        <li>Seaborn</li>
+                        <li>Scikit-learn</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 4. Machine Learning -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <h4><i class="fas fa-brain"></i> Machine Learning</h4>
+                    <ul>
+                        <li>Supervised Learning</li>
+                        <li>TF-IDF Feature Extraction</li>
+                        <li>Data Preprocessing</li>
+                        <li>Model Implementation (Scikit‑learn)</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 5. Data Structures & Algorithms -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <h4><i class="fas fa-cogs"></i> DSA & Algorithms</h4>
+                    <ul>
+                        <li>Data Structures</li>
+                        <li>Algorithm Design</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 6. UI/UX & Web Design -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <h4><i class="fas fa-paint-brush"></i> UI/UX & Web Design</h4>
+                    <ul>
+                        <li>Responsive Web Design</li>
+                        <li>UI/UX Principles</li>
+                        <li>Figma (Basics)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Education Section -->
+<section id="education" class="py-5">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="row g-4">
+            <!-- Lovely Professional University -->
+            <div class="col-md-6">
+                <div class="education-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-graduation-cap fa-2x me-3" style="color: var(--accent);"></i>
+                        <div>
+                            <h4 class="mb-0">Lovely Professional University</h4>
+                            <p class="text-muted mb-0">Punjab · 2023 – 2027</p>
+                        </div>
+                    </div>
+                    <p class="mb-2"><strong>Computer Science and Engineering</strong> — CGPA: 8.5</p>
+                    <p class="text-muted">Jalandhar, Punjab</p>
+                </div>
+            </div>
+            <!-- Sir Padampat Singhania Education Centre (12th) -->
+            <div class="col-md-6">
+                <div class="education-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-school fa-2x me-3" style="color: var(--accent);"></i>
+                        <div>
+                            <h4 class="mb-0">Sir Padampat Singhania Education Centre</h4>
+                            <p class="text-muted mb-0">2022 – 2023</p>
+                        </div>
+                    </div>
+                    <p class="mb-2"><strong>12th with Science</strong> — Percentage: 74.60%</p>
+                    <p class="text-muted">Kanpur, Uttar Pradesh</p>
+                </div>
+            </div>
+            <!-- Sir Padampat Singhania Education Centre (10th) -->
+            <div class="col-md-6">
+                <div class="education-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-school fa-2x me-3" style="color: var(--accent);"></i>
+                        <div>
+                            <h4 class="mb-0">Sir Padampat Singhania Education Centre</h4>
+                            <p class="text-muted mb-0">2020 – 2021</p>
+                        </div>
+                    </div>
+                    <p class="mb-2"><strong>10th</strong> — CGPA: 9.54</p>
+                    <p class="text-muted">Kanpur, Uttar Pradesh</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="row g-4">
+                <!-- A Guide to Machine Learning with Data Science -->
+                <div class="col-md-4">
+                    <a href="https://drive.google.com/file/d/1IpZTrhlxOKULf4CFu89jcwNMNfXBbCR3/view?usp=sharing}" target="_blank" class="text-decoration-none">
+                        <div class="certificate-card">
+                            <img src="{% static 'images/certificates/machine learning.png' %}" alt="Git and GitHub Certificate" class="certificate-img">
+                            <h5 class="mt-3">A Guide to Machine Learning with Data Science</h5>
+                            <p class="text-muted mb-1">CipherSchools</p>
+                            <p class="text-muted"><small>June 2025</small></p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Cloud Computing -->
+                <div class="col-md-4">
+                    <a href="https://drive.google.com/file/d/1KWOnwrpgd-iyKvqlE1nTG0VQyxGkyFCV/view?usp=sharing" target="_blank" class="text-decoration-none">
+                        <div class="certificate-card">
+                            <img src="{% static 'images/certificates/cloud computing.png' %}" alt="Cloud Computing Certificate" class="certificate-img">
+                            <h5 class="mt-3">Cloud Computing</h5>
+                            <p class="text-muted mb-1">NPTEL</p>
+                            <p class="text-muted"><small>April 2025</small></p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Computer Communications -->
+                <div class="col-md-4">
+                    <a href="https://drive.google.com/file/d/1y0qflZ1yoAuxRrVCW9qeGPur3lY6_XhD/view?usp=sharing." target="_blank" class="text-decoration-none">
+                        <div class="certificate-card">
+                            <img src="{% static 'images/certificates/computer communications.png' %}" alt="Computer Communications Certificate" class="certificate-img">
+                            <h5 class="mt-3">Computer Communications</h5>
+                            <p class="text-muted mb-1">Coursera</p>
+                            <p class="text-muted"><small>November 2024</small></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <img src="{% static 'images/ticket_project.png' %}" class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">Ticket Management System</h5>
+                            <p class="card-text">A responsive web application for creating, managing, and tracking support tickets with role-based access and real-time status updates.</p>
+                            <div class="tech-badges">
+                                <span class="badge bg-primary">Responsive UI</span>
+                                <span class="badge bg-secondary">Web Application</span>
+                                <span class="badge bg-success">Bootstrap</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <img src="{% static 'images/directory_management.png' %}" class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">AI Powered Directory Management System</h5>
+                            <p class="card-text">Automatically categorizes files using NLP and OCR. Built with Python + Streamlit.</p>
+                            <div class="tech-badges">
+                                <span class="badge bg-primary">Python</span>
+                                <span class="badge bg-secondary">Streamlit</span>
+                                <span class="badge bg-success">NLP</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <img src="{% static 'images/dashboard.png' %}" class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">Crime Analytics Dashboard</h5>
+                            <p class="card-text">Power BI dashboard analyzing crime trends in India with interactive visualizations.</p>
+                            <div class="tech-badges">
+                                <span class="badge bg-primary">Power BI</span>
+                                <span class="badge bg-secondary">Data Visualization</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <!-- Project 4 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Learning Journey -->
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Learning Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Learning Frontend Development & Web Technologies</h4>
+                    <p>2023 - Present</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Learning Data Science</h4>
+                    <p>2024 - Present</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Practicing DSA and algorithms</h4>
+                    <p>2024 - Present</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Stats Section -->
+    <section id="github" class="py-5">
+        <div class="container">
+            <h2 class="section-title">GitHub Stats</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://github-readme-stats.vercel.app/api?username=PrakharM9&show_icons=true&theme=radical" alt="GitHub Stats" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PrakharM9&layout=compact&theme=radical" alt="Top Languages" class="img-fluid">
+                </div>
+                <div class="col-12 mt-4">
+                    <img src="https://ghchart.rshah.org/PrakharM9" alt="GitHub Contribution Graph" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <!-- Display success/error messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <!-- Contact Form -->
+                    <form method="post" class="mb-4">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+
+                    <!-- Contact Details (Email & Mobile) -->
+                    <div class="contact-details text-center mt-4">
+                        <h5>Get in touch</h5>
+                        <div class="d-flex justify-content-center gap-4 flex-wrap">
+                            <a href="mailto:prakhar@example.com" class="contact-link">
+                                <i class="fas fa-envelope fa-2x"></i>
+                                <span>prakhar@example.com</span>
+                            </a>
+                            <a href="tel:+919876543210" class="contact-link">
+                                <i class="fas fa-phone-alt fa-2x"></i>
+                                <span>+91 98765 43210</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Social Links (Optional, if you already have them elsewhere) -->
+                    <div class="social-links mt-4 text-center">
+                        <a href="#" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-github fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p>&copy; 2026 Prakhar Mehrotra. All rights reserved.</p>
+            <a href="#" id="back-to-top" class="btn btn-sm btn-outline-light"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

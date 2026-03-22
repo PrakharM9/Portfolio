@@ -9,15 +9,19 @@
       }
     }
   ],
-  "buildCommand": "python manage.py migrate --noinput && python manage.py collectstatic --noinput",
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/staticfiles/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "portfolio_project/wsgi.py"
     }
   ],
   "env": {
-    "DJANGO_SETTINGS_MODULE": "portfolio_project.settings"
+    "DJANGO_SETTINGS_MODULE": "portfolio_project.settings",
+    "DJANGO_DEBUG": "False"
   },
-  "buildCommand": "python manage.py collectstatic --noinput"
+  "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput"
 }

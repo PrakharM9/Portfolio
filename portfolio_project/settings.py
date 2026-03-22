@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,14 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-import os
-
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-+1gw3a^!&ui3s773du%h%q(&0sik)*4v=40cmntqrkc-(lz8z@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() in ['1','true','yes']
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ['1', 'true', 'yes']
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
+
+# For deployment behind HTTPS (Render, etc.)
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost,http://127.0.0.1').split(',')
 
 
 # Application definition
@@ -79,7 +81,7 @@ WSGI_APPLICATION = "portfolio_project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.environ.get('DJANGO_SQLITE_DB', BASE_DIR / 'db.sqlite3'),
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -122,11 +124,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
-import os
-STATIC_URL = "static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'portfolio_app/static')]
+
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'portfolio_app', 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# WhiteNoise for serving static files in production
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

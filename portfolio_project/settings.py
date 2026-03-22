@@ -20,12 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-+1gw3a^!&ui3s773du%h%q(&0sik)*4v=40cmntqrkc-(lz8z@"
+import os
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-+1gw3a^!&ui3s773du%h%q(&0sik)*4v=40cmntqrkc-(lz8z@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() in ['1','true','yes']
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
 
 
 # Application definition
@@ -77,9 +79,14 @@ WSGI_APPLICATION = "portfolio_project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": os.environ.get('DJANGO_SQLITE_DB', BASE_DIR / 'db.sqlite3'),
     }
 }
+
+# Optional PostgreSQL configuration via env (overrides sqlite if present)
+if os.environ.get('DATABASE_URL'):
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'], conn_max_age=600)
 
 
 # Password validation

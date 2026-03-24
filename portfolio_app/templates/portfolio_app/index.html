@@ -37,6 +37,7 @@
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#github">GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#competitive-coding">Coding</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     <li class="nav-item">
                         <button id="theme-toggle" class="btn btn-sm btn-outline-light ms-2">
@@ -267,7 +268,8 @@
                                 <span class="badge bg-success">Bootstrap</span>
                             </div>
                             <div class="mt-3">
-                                <a href="#" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/PrakharM9/Ticket-Management-System" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://prakharm9.pythonanywhere.com/login/" class="btn btn-sm btn-outline-primary">Demo</a>
                             </div>
                         </div>
                     </div>
@@ -284,7 +286,8 @@
                                 <span class="badge bg-success">NLP</span>
                             </div>
                             <div class="mt-3">
-                                <a href="#" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/PrakharM9/Directory-System" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://prakharm9-directory-system-cod1-wufvjw.streamlit.app/" class="btn btn-sm btn-outline-primary">Demo</a>
                             </div>
                         </div>
                     </div>
@@ -300,7 +303,8 @@
                                 <span class="badge bg-secondary">Data Visualization</span>
                             </div>
                             <div class="mt-3">
-                                <a href="#" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/PrakharM9/Crime-Analytics-Dashboard-India-2001-2013" class="btn btn-sm btn-dark"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://app.powerbi.com/groups/me/reports/4b5f3af8-7196-4d43-943b-5600b0b99397/1e21c2ce004d6d10a5ce?experience=power-bi" class="btn btn-sm btn-outline-primary">Demo</a>
                             </div>
                         </div>
                     </div>
@@ -349,50 +353,88 @@
             </div>
         </div>
     </section>
-
+    <!-- Competitive Coding Section -->
+    <section id="competitive-coding" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Competitive Coding</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- LeetCode Card -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="coding-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fab fa-leetcode fa-3x me-3" style="color: #FFA116;"></i>
+                            <h3 class="mb-0">LeetCode</h3>
+                        </div>
+                        <p class="lead">Solved <strong>200+</strong> questions</p>
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                        </div>
+                        <p class="text-muted">Ranking: Top 30%</p>
+                        <a href="https://leetcode.com/PrakharMehrotra" target="_blank" class="btn btn-outline-primary">View Profile</a>
+                    </div>
+                </div>
+                <!-- HackerRank Card -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="coding-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fab fa-hackerrank fa-3x me-3" style="color: #1BA94C;"></i>
+                            <h3 class="mb-0">HackerRank</h3>
+                        </div>
+                        <p><strong>5 Star</strong> in C++, Python, SQL</p>
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                            <span class="badge bg-primary">C++ ★★★</span>
+                            <span class="badge bg-primary">Python ★★★</span>
+                            <span class="badge bg-primary">SQL ★★★</span>
+                        </div>
+                        <a href="https://www.hackerrank.com/profile/prakharmehrotra2" target="_blank" class="btn btn-outline-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title">Contact Me</h2>
             <div class="row">
                 <div class="col-lg-6 mx-auto">
-                    <!-- Display success/error messages -->
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
+                    <!-- Status alert (shown by JS after send) -->
+                    <div id="form-status" class="alert d-none" role="alert"></div>
 
-                    <!-- Contact Form -->
-                    <form method="post" class="mb-4">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    <!-- Contact Form — powered by EmailJS -->
+                    <form id="contact-form" class="mb-4">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="from_name" name="from_name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="from_email" name="from_email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" id="contact-btn" class="btn btn-primary w-100">Send Message</button>
                     </form>
 
                     <!-- Contact Details (Email & Mobile) -->
                     <div class="contact-details text-center mt-4">
                         <h5>Get in touch</h5>
                         <div class="d-flex justify-content-center gap-4 flex-wrap">
-                            <a href="mailto:prakhar@example.com" class="contact-link">
+                            <a href="mailto:prakharmehrotra18@gmail.com" class="contact-link">
                                 <i class="fas fa-envelope fa-2x"></i>
-                                <span>prakhar@example.com</span>
+                                <span>prakharmehrotra18@gmail.com</span>
                             </a>
-                            <a href="tel:+919876543210" class="contact-link">
+                            <a href="tel:+919235585817" class="contact-link">
                                 <i class="fas fa-phone-alt fa-2x"></i>
-                                <span>+91 98765 43210</span>
+                                <span>+91 92355 85817</span>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Social Links (Optional, if you already have them elsewhere) -->
+                    <!-- Social Links -->
                     <div class="social-links mt-4 text-center">
-                        <a href="#" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-github fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="https://www.linkedin.com/in/prakhar2004/" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="https://github.com/PrakharM9" class="me-3"><i class="fab fa-github fa-2x"></i></a>
+                        <a href="https://x.com/prakharmehrotr4"><i class="fab fa-twitter fa-2x"></i></a>
                     </div>
                 </div>
             </div>
@@ -409,7 +451,9 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- Custom JS -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}?v=1"></script>
 </body>
 </html>
